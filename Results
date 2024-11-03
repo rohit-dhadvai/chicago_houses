@@ -3,8 +3,8 @@ Linear Regression:
   Mean Absolute Error (MAE): 6.37, indicating the average absolute difference between predicted and actual prices is around 6.37.
   R-squared (R2): 0.699, suggesting that about 69.9% of the variance in house prices is explained by this model.
 Random Forest Regressor:
-  - MAE: 2.73, showing better performance than linear regression in terms of prediction accuracy.
-  - R2: 0.947, which is very high, indicating a strong fit of the model to the data.
+  - MAE: 2.81, showing better performance than linear regression in terms of prediction accuracy.
+  - R2: 0.944, which is very high, indicating a strong fit of the model to the data.
 - XGBoost Regressor:
   - MAE: 2.83, slightly higher than Random Forest but still quite accurate.
   - R2: 0.911, also a strong fit, demonstrating that XGBoost performs well with this dataset.
@@ -21,8 +21,8 @@ Interpretation: The Random Forest Classifier outperforms Logistic Regression sig
 
 KMeans Clustering
 - Cluster Counts:
-  - Cluster 0: 98 data points
-  - Cluster 1: 25 data points
+  - Cluster 0: 111 data points
+  - Cluster 1: 12 data points
   - Cluster 2: 5 data points
 - Interpretation: This clustering divides the data into three groups. Cluster 0 has the majority of points, while clusters 1 and 2 are smaller. Visualizing these clusters could provide insights into how different property characteristics group together.
 
