@@ -10,30 +10,41 @@ import seaborn as sns  # for advanced data visualization
 from sklearn.model_selection import train_test_split  # for splitting dataset
 from sklearn.linear_model import LinearRegression, LogisticRegression  # for regression and classification
 from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier  # for ensemble models
-from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score  # for regression evaluation
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score  # for classification evaluation
+from sklearn.metrics import mean_absolute_error, r2_score  # for regression evaluation
+from sklearn.metrics import accuracy_score, f1_score  # for classification evaluation
 from sklearn.cluster import KMeans  # for clustering
 from sklearn.preprocessing import StandardScaler  # for scaling data
-import xgboost as xgb
-import pandas as pd
+import xgboost as xgb  # make sure xgboost is installed
 
 # Load the dataset
-df = pd.read_csv("/content/realest.csv")
-df.head()  # shows the first five rows
+df = pd.read_csv(r'C:\Users\user\OneDrive\Desktop\realest.csv')
+print("First few rows of the dataset:")
+print(df.head())  # shows the first five rows
+print("\nDataset Information:")
 df.info()  # provides data types and missing values
-df.describe()  # summary statistics for numerical columns
-df.isnull().sum()  # check for missing values
-df = df.dropna()  # or fill with mean/median, depending on context
+print("\nSummary Statistics:")
+print(df.describe())  # summary statistics for numerical columns
+
+# Check for and handle missing values
+print("\nMissing Values in Each Column:")
+print(df.isnull().sum())
+df = df.dropna()  # Drop rows with missing values or fill with mean/median
+
+# Encode categorical variables, if any
 df = pd.get_dummies(df, drop_first=True)  # converts categorical to binary columns
+
+# Scale the features for clustering and some models
 scaler = StandardScaler()
 df_scaled = scaler.fit_transform(df)
-# Step 6: Define Feature Matrix (X) and Target Vector (y) for Regression
-X = df.drop('price', axis=1)  # Features (all columns except 'price')
-y = df['price']  # Target variable (price)
-#Step 7: Split Data for Training and Testing (Regression)
+
+# Define Feature Matrix (X) and Target Vector (y) for Regression
+X = df.drop('Price', axis=1)  # Features (all columns except 'price')
+y = df['Price']  # Target variable (price)
+
+# Split Data for Training and Testing (Regression)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Step 8: Train Regression Models
+# Train Regression Models
 # 1. Linear Regression
 lr_model = LinearRegression()
 lr_model.fit(X_train, y_train)
@@ -49,7 +60,8 @@ xgb_model = xgb.XGBRegressor()
 xgb_model.fit(X_train, y_train)
 y_pred_xgb = xgb_model.predict(X_test)
 
-# Step 9: Evaluate Regression Models
+# Evaluate Regression Models
+print("\nRegression Model Evaluation:")
 print("Linear Regression MAE:", mean_absolute_error(y_test, y_pred_lr))
 print("Linear Regression R2:", r2_score(y_test, y_pred_lr))
 
@@ -59,18 +71,18 @@ print("Random Forest R2:", r2_score(y_test, y_pred_rf))
 print("XGBoost MAE:", mean_absolute_error(y_test, y_pred_xgb))
 print("XGBoost R2:", r2_score(y_test, y_pred_xgb))
 
-# Step 10: Create Price Categories for Classification
-median_price = df['price'].median()
-df['price_category'] = df['price'].apply(lambda x: 1 if x >= median_price else 0)
+# Create Price Categories for Classification
+median_price = df['Price'].median()
+df['Price_category'] = df['Price'].apply(lambda x: 1 if x >= median_price else 0)
 
-# Step 11: Define Feature Matrix (X) and Target Vector (y) for Classification
-X = df.drop(['price', 'price_category'], axis=1)
-y = df['price_category']
+# Define Feature Matrix (X) and Target Vector (y) for Classification
+X = df.drop(['Price', 'Price_category'], axis=1)
+y = df['Price_category']
 
-# Step 12: Split Data for Training and Testing (Classification)
+# Split Data for Training and Testing (Classification)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Step 13: Train Classification Models
+# Train Classification Models
 # 1. Logistic Regression
 clf_lr = LogisticRegression()
 clf_lr.fit(X_train, y_train)
@@ -81,24 +93,30 @@ clf_rf = RandomForestClassifier()
 clf_rf.fit(X_train, y_train)
 y_pred_clf_rf = clf_rf.predict(X_test)
 
-# Step 14: Evaluate Classification Models
+# Evaluate Classification Models
+print("\nClassification Model Evaluation:")
 print("Logistic Regression Accuracy:", accuracy_score(y_test, y_pred_clf_lr))
 print("Logistic Regression F1 Score:", f1_score(y_test, y_pred_clf_lr))
 
 print("Random Forest Classifier Accuracy:", accuracy_score(y_test, y_pred_clf_rf))
 print("Random Forest Classifier F1 Score:", f1_score(y_test, y_pred_clf_rf))
 
-# Apply KMeans with 3 clusters
+# Apply KMeans Clustering
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)  # Scale the features in X for clustering
+
+# Using KMeans with 3 clusters
 kmeans = KMeans(n_clusters=3, random_state=42)
 df['cluster'] = kmeans.fit_predict(X_scaled)
 
 # Print the cluster assignment for each data point
-print("KMeans Clustering Assignment:", df['cluster'].value_counts())
+print("\nKMeans Clustering Assignment Counts:")
+print(df['cluster'].value_counts())
 
+# Visualize the clusters
 plt.figure(figsize=(8, 6))
 sns.scatterplot(x=X_scaled[:, 0], y=X_scaled[:, 1], hue=df['cluster'], palette='viridis')
 plt.title("KMeans Clustering of Chicago House Prices")
 plt.xlabel("Feature 1")
 plt.ylabel("Feature 2")
 plt.show()
-
