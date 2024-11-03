@@ -44,11 +44,11 @@ https://colab.research.google.com/drive/186GudAT_7kUjCEIWmX4ev9do6VNTXNfZ?usp=sh
   - Random Forest Classifier: Utilizes ensemble learning to classify house prices effectively.
 
 ## Results
-- **Best performing regression model**: XGBoost with an MAE of 3.03 and R² score of 0.91.
-- **Best performing classification model**: Random Forest Classifier with perfect accuracy (1.00) and F1 score (1.00).
+- **Best performing regression model**: XGBoost with an MAE of 2.831 and R² score of 0.92.
+- **Best performing classification model**: Random Forest Classifier with perfect accuracy (0.92) and F1 score (0.92).
 - **Performance Metrics**:
   - Linear Regression: MAE of 6.37 and R² score of 0.699.
-  - Random Forest Regressor: MAE of 2.73 and R² score of 0.947.
+  - Random Forest Regressor: MAE of 2.81 and R² score of 0.944.
   - Logistic Regression: Accuracy of 0.692 and F1 score of 0.692.
 
 ## Contributing
