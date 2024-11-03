@@ -1,0 +1,32 @@
+Regression Models Performance
+Linear Regression
+
+Mean Absolute Error (MAE): 3.89
+R² Score: 0.89
+Random Forest Regressor
+
+Mean Absolute Error (MAE): 2.70
+R² Score: 0.88
+XGBoost Regressor
+
+Mean Absolute Error (MAE): 3.03
+R² Score: 0.91
+Classification Models Performance
+Logistic Regression
+
+Accuracy: 0.92
+F1 Score: 0.92
+
+Random Forest Classifier
+Accuracy: 1.00 (perfect accuracy)
+F1 Score: 1.00 (perfect F1 score)
+Clustering Model (K-Means)
+Cluster Distribution:
+Cluster 0: 98 instances
+Cluster 1: 12 instances
+Cluster 2: 18 instances
+KMeans Silhouette Score: -0.03 (indicating poor clustering quality, as negative values suggest that clusters may be overlapping or not well-defined)
+Summary
+The XGBoost Regressor performed best among the regression models, followed closely by Linear Regression.
+The Random Forest Classifier showed perfect accuracy and F1 score in the classification task, making it the best performing model in this category.
+The K-Means clustering results show some challenges with cluster quality, indicated by the negative silhouette score.
