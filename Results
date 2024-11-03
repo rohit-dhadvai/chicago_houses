@@ -1,32 +1,33 @@
-Regression Models Performance
-Linear Regression
+Regression Model Evaluation
+Linear Regression:
+  Mean Absolute Error (MAE): 6.37, indicating the average absolute difference between predicted and actual prices is around 6.37.
+  R-squared (R2): 0.699, suggesting that about 69.9% of the variance in house prices is explained by this model.
+Random Forest Regressor:
+  - MAE: 2.73, showing better performance than linear regression in terms of prediction accuracy.
+  - R2: 0.947, which is very high, indicating a strong fit of the model to the data.
+- XGBoost Regressor:
+  - MAE: 2.83, slightly higher than Random Forest but still quite accurate.
+  - R2: 0.911, also a strong fit, demonstrating that XGBoost performs well with this dataset.
+Interpretation: The Random Forest model seems to be the best-performing regression model in terms of both MAE and R2 score, closely followed by XGBoost.
 
-Mean Absolute Error (MAE): 3.89
-R² Score: 0.89
-Random Forest Regressor
+ Classification Model Evaluation
+- Logistic Regression:
+  - Accuracy: 0.692, meaning the model correctly classifies 69.2% of the samples.
+  - F1 Score: 0.692, indicating a balance between precision and recall for classifying prices above or below the median.
+- Random Forest Classifier:
+  - Accuracy: 0.923, demonstrating high accuracy for price classification.
+  - F1 Score: 0.923, suggesting excellent performance in distinguishing between high and low price categories.
+Interpretation: The Random Forest Classifier outperforms Logistic Regression significantly, achieving much higher accuracy and F1 score.
 
-Mean Absolute Error (MAE): 2.70
-R² Score: 0.88
-XGBoost Regressor
+KMeans Clustering
+- Cluster Counts:
+  - Cluster 0: 98 data points
+  - Cluster 1: 25 data points
+  - Cluster 2: 5 data points
+- Interpretation: This clustering divides the data into three groups. Cluster 0 has the majority of points, while clusters 1 and 2 are smaller. Visualizing these clusters could provide insights into how different property characteristics group together.
 
-Mean Absolute Error (MAE): 3.03
-R² Score: 0.91
-Classification Models Performance
-Logistic Regression
-
-Accuracy: 0.92
-F1 Score: 0.92
-
-Random Forest Classifier
-Accuracy: 1.00 (perfect accuracy)
-F1 Score: 1.00 (perfect F1 score)
-Clustering Model (K-Means)
-Cluster Distribution:
-Cluster 0: 98 instances
-Cluster 1: 12 instances
-Cluster 2: 18 instances
-KMeans Silhouette Score: -0.03 (indicating poor clustering quality, as negative values suggest that clusters may be overlapping or not well-defined)
 Summary
-The XGBoost Regressor performed best among the regression models, followed closely by Linear Regression.
-The Random Forest Classifier showed perfect accuracy and F1 score in the classification task, making it the best performing model in this category.
-The K-Means clustering results show some challenges with cluster quality, indicated by the negative silhouette score.
+Overall, the models perform well:
+-Regression: Random Forest Regressor provides the best predictions.
+-Classification: Random Forest Classifier achieves high accuracy in categorizing prices.
+-Clustering: KMeans offers grouping, which could be explored further to understand property segments.
