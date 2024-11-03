@@ -48,9 +48,9 @@ This project involves predicting house prices in various cities using regression
 - **Best performing regression model**: XGBoost with an MAE of 3.03 and R² score of 0.91.
 - **Best performing classification model**: Random Forest Classifier with perfect accuracy (1.00) and F1 score (1.00).
 - **Performance Metrics**:
-  - Linear Regression: MAE of 3.89 and R² score of 0.89.
-  - Random Forest Regressor: MAE of 2.70 and R² score of 0.88.
-  - Logistic Regression: Accuracy of 0.92 and F1 score of 0.92.
+  - Linear Regression: MAE of 6.37 and R² score of 0.699.
+  - Random Forest Regressor: MAE of 2.73 and R² score of 0.947.
+  - Logistic Regression: Accuracy of 0.692 and F1 score of 0.692.
 
 ## Contributing
 Contributions are welcome! If you would like to contribute to this project, please open an issue or submit a pull request. Make sure to follow the code style and include tests for new features.
