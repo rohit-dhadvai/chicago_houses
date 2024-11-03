@@ -30,10 +30,9 @@ This project involves predicting house prices in various cities using regression
    ```
 
 ## Usage
-- Navigate to this link "https://colab.research.google.com/drive/1n9msbxiHragPXcanY8QuJxVdVN8AeAWz#scrollTo=7XSc9IqQAXuG" to open the jupyter notebook to run the cells to see the model results. Make sure you have Jupyter installed. If not, you can install it using:
-   ```bash
-   pip install jupyter
-   ```
+- Navigate to this link to open the google collab and run the cells to see the model results:
+https://colab.research.google.com/drive/186GudAT_7kUjCEIWmX4ev9do6VNTXNfZ?usp=sharing
+
 ## Models and Methodology
 - **Regression Models**:
   - Linear Regression: Used for predicting continuous house prices based on various features.
