@@ -16,8 +16,11 @@ from sklearn.cluster import KMeans  # for clustering
 from sklearn.preprocessing import StandardScaler  # for scaling data
 import xgboost as xgb  # make sure xgboost is installed
 
-# Load the dataset
-df = pd.read_csv(r'C:\Users\user\OneDrive\Desktop\realest.csv')
+import pandas as pd
+df = pd.read_csv('realest.csv')
+df.head()  # Display the first few rows
+
+
 print("First few rows of the dataset:")
 print(df.head())  # shows the first five rows
 print("\nDataset Information:")
